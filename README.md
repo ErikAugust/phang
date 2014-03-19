@@ -5,17 +5,17 @@
 <strong>Phang</strong> is a complete web application boilerplate.</strong>It combines the Silex PHP framework with the AngularJS JavaScript framework. Back-end concerns are handled by PHP and AngularJS handles front-end.</p>
 
 <p><strong>Why the name Phang?</strong><br />
-Two reasons: 1. PHP + Angular = PH-Ang.<br />
+Two reasons:<br />1. PHP + Angular = PH-Ang.<br />
 2. In earlier versions, the AngularJS interpolateProvider was changed to "{v{ }v}". They look like fangs. Since 0.2.0 has moved into the Single Page Application (SPA) format, using AngularJS for routing.</p>
 
 <p><strong>Who is the intended user?</strong><br />
-Developers who would like the freedom and knowledge of creating their models/classes in PHP but want to also quickly create RESTful APIs and a front-end to connect to it.</p>
+Developers who would like to use their knowledge and freedom of creating their models/classes in PHP, but want to also quickly create RESTful APIs and a front-end application framework to connect to it.</p>
 
 <p><strong>Why should I try out Phang?</strong><br />
 Phang gives you a flexible and organized way to create web applications front to back. Also, under development is the Phang command line utility which emulates some of the generator and utility functions of Ruby on Rails.</p>
 
 <p><strong>What are the requirements</strong><br />
-<p>PHP: 5+. Node.js must also be installed on your system.</p>
+<p>PHP: 5.2+. Node.js must also be installed on your system.</p>
 
 <p<strong>Tools/libraries used or included:</strong><br /><br />
 
