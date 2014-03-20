@@ -1,7 +1,9 @@
 {
     "require": {
         "silex/silex": "1.*",
-        "twig/twig": ">=1.8,<2.0-dev",
+		"symfony/yaml": "2.1.*",
+		"symfony/config": "2.3.*@dev",
+		"twig/twig": ">=1.8,<2.0-dev",
         "mheap/Silex-Memcache": "*@dev",
 		"swiftmailer/swiftmailer": ">=4.1.2,<4.2-dev"
     },
@@ -10,7 +12,7 @@
     },
     "autoload": {
         "psr-0": {
-            "models": "src/models"
+            "models": ""
         }
     }
 }

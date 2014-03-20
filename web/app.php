@@ -1,22 +1,28 @@
 <?php
 require_once __DIR__.'/../php/base_include.php';
 
-// Init Silex:
-$app = new Silex\Application();
-
 // Use Symfony components:
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\Routing\Loader\YamlFileLoader;
+use Symfony\Component\Routing\RouteCollection;
+use Silex\Application;
+
 // Use app models:
 use models\Base;
+use models\AppController;
+
+// Init Silex:
+$app = new Application();
 
 // Session handler - stores session in "../../session"
-$app->register(new Silex\Provider\SessionServiceProvider(), array(
+/*$app->register(new Silex\Provider\SessionServiceProvider(), array(
     'session.storage.save_path' => __DIR__.'/../php/session',
-));
+));*/
 
 // Decodes headers with JSON Content-Type automatically
 $app->before(function (Request $request) {
@@ -27,14 +33,14 @@ $app->before(function (Request $request) {
 });
 
 // Init Cookie -> Session handling
-$app->before(function (Request $request) use ($app) {
+/*$app->before(function (Request $request) use ($app) {
 	if(!$app['session']->has("Example")) {
 		$cookies = $request->cookies;
     	if($cookies->has("Example")) {
         	$app['session']->set("Example", $cookies->get("Example"));
 		}
 	}
-});
+});*/
 
 // Twig HTML templating/rendering
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
@@ -52,13 +58,20 @@ $app->register(new SilexMemcache\MemcacheExtension(), array(
 // Routing to SPA (Single Page Application)
 // PHANG, by default uses the single page application format:
 $app->get('/', function () use ($app) {
-    return $app->redirect('/index.html');
+	$base = new Base;
+	return $app->redirect('/index.html');
 });
 
-// REST API routing:
-$app->get('/user/', function () use ($app) {
-    return $app->json('Hello world!');
+
+// Extended routes
+$app['routes'] = $app->extend('routes', function (RouteCollection $routes, Application $app) {
+    $loader     = new YamlFileLoader(new FileLocator(__DIR__ . '/../php/config'));
+    $collection = $loader->load('routes.yml');
+    $routes->addCollection($collection);
+ 
+    return $routes;
 });
+
 
 // App debug mode - when set to TRUE app will display errors.
 $app['debug'] = true;

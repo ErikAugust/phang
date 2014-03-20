@@ -2,8 +2,6 @@
 namespace models;
 use PDO;
 
-require_once "../base_include.php";
-
 /* PHANG - Base class
  * Class provides database and caching connections
  *
