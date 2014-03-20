@@ -63,7 +63,7 @@ $app->get('/', function () use ($app) {
 });
 
 
-// Extended routes
+// Extended routes - generated routes are located in /../php/config/routes.yml
 $app['routes'] = $app->extend('routes', function (RouteCollection $routes, Application $app) {
     $loader     = new YamlFileLoader(new FileLocator(__DIR__ . '/../php/config'));
     $collection = $loader->load('routes.yml');
