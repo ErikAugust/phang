@@ -58,7 +58,6 @@ $app->register(new SilexMemcache\MemcacheExtension(), array(
 // Routing to SPA (Single Page Application)
 // PHANG, by default uses the single page application format:
 $app->get('/', function () use ($app) {
-	$base = new Base;
 	return $app->redirect('/index.html');
 });
 
