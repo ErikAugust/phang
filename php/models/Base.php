@@ -13,46 +13,45 @@ class Base {
 
     protected $db;
 	protected $memcache;
-	protected $db_dns;
-	protected $db_username;
-	protected $db_password;
 
     public function __construct($dbset = 'default') {
 
 		// Setups
-		$this->dbSetup();
-		$this->memcacheSetup();
-		
-		$this->db = new PDO($this->db_dns, $this->db_username, $this->db_password);
-        $this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    	// Sets database timeout to 5 seconds:
-		$this->db->setAttribute(PDO::ATTR_TIMEOUT, 5);
-
+		$this->db = self::dbSetup($dbset);
+		$this->memcache = self::memcacheSetup();
 	}
 
-	protected function dbSetup() {
+	public static function dbSetup($dbset = 'default') {
 		// Database provider setup:
         if (!$settings = parse_ini_file(DB_SETTINGS_DIR, TRUE)) 
         throw new exception('Unable to open ' . DB_SETTINGS_DIR . '.');
 
         // Arrange database setup variables from settings:
-        $this->db_dns = $settings[$dbset]['driver'] .
+        $db_dns = $settings[$dbset]['driver'] .
         ':host=' . $settings[$dbset]['host'] .
         ((!empty($settings[$dbset]['port'])) ? (';port=' . $settings[$dbset]['port']) : '') .
         ';dbname=' . $settings[$dbset]['dbname'];
-        $this->db_username = $settings[$dbset]['username'];
-        $this->db_password = $settings[$dbset]['password'];
-		return true;
+        $db_username = $settings[$dbset]['username'];
+        $db_password = $settings[$dbset]['password'];
+		
+		$db = new PDO($db_dns, $db_username, $db_password);
+        $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        // Sets database timeout to 5 seconds:
+        $db->setAttribute(PDO::ATTR_TIMEOUT, 5);
+		return $db;
 	}
 
-	protected function memcacheSetup() {
+	public static function memcacheSetup() {
 		// Memcache provider setup:
         if (MEMCACHE_LIBRARY == 'memcache') {
-            $this->memcache = new Memcache;
+            $memcache = new \Memcache;
         } else if (MEMCACHE_LIBRARY == 'memcached') {
-            $this->memcache = new Memcached;
+            $memcache = new \Memcached;
         }
-        $this->memcache->connect(MEMCACHE_HOST, MEMCACHE_PORT) or die ("Could not connect to Memcache");        
+        if (!$memcache->connect(MEMCACHE_HOST, MEMCACHE_PORT)) 
+		throw new exception('Unable to connect to Memcache');       
+		
+		return $memcache;
 	}
 }
