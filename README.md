@@ -39,4 +39,5 @@ Unit Testing: Karma<br />
 Task Running: Grunt<br />
 </p>
 
-<p>Current version: 0.2.0</p>
+<p>Current version: 0.2.5<br />
+Moves routing to Symfony2 components - will help with generation/scalability</p>
