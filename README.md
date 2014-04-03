@@ -1,4 +1,6 @@
-<p><strong>PHANG</strong> - current version: 0.2.0</p>
+<p><strong>PHANG</strong> - current version: 0.2.2
+<br />PHP Unit Tests added for Base.php class</p>
+
 <p>Example at <a href="http://phang.erikaugust.com">phang.erikaugust.com</a></p>
 
 <p><strong>What is heck is Phang?</strong><br />
@@ -39,5 +41,3 @@ Unit Testing: Karma<br />
 Task Running: Grunt<br />
 </p>
 
-<p>Current version: 0.2.5<br />
-Moves routing to Symfony2 components - will help with generation/scalability</p>
