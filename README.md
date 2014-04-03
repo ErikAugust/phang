@@ -17,7 +17,7 @@ Developers who would like to use their knowledge and freedom of creating their m
 Phang gives you a flexible and organized way to create web applications front to back. Also, under development is the Phang command line utility which emulates some of the generator and utility functions of Ruby on Rails.</p>
 
 <p><strong>What are the requirements</strong><br />
-<p>PHP: 5.2+. Node.js must also be installed on your system.</p>
+<p>PHP: 5.3.3+. Node.js must also be installed on your system.</p>
 
 <p<strong>Tools/libraries used or included:</strong><br /><br />
 
