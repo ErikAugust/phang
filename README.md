@@ -1,7 +1,11 @@
-<p><strong>PHANG</strong> - current version: 0.2.2
-<br />PHP Unit Tests added for Base.php class</p>
+<p><strong>PHANG</strong> - current version: 0.3.0
+<br />0.3.0:<br />Adds Angular Resource<br />Updates Angular UI Router from 0.0.1 to 0.2.10<br />
+Updates Angular Bootstrap from 0.3.0 to 0.8.0<br /><br /> 
+<br />0.2.0: PHP Unit Tests added for Base.php class</p>
 
 <p>Example at <a href="http://phang.erikaugust.com">phang.erikaugust.com</a></p>
+
+<p><img src="http://erikaugust.com/wp-content/uploads/2014/06/5877607_l-300x300.jpg" /></p>
 
 <p><strong>What is heck is Phang?</strong><br />
 <strong>Phang</strong> is a complete web application boilerplate.</strong>It combines the Silex PHP framework with the AngularJS JavaScript framework. Back-end concerns are handled by PHP and AngularJS handles front-end.</p>

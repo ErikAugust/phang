@@ -1,8 +1,23 @@
 {
-  "name": "ui-router",
-  "version": "0.0.1",
-  "main": "./release/angular-ui-router.min.js",
+  "name": "angular-ui-router",
+  "version": "0.2.10",
+  "main": "./release/angular-ui-router.js",
   "dependencies": {
-    "angular": ">= 1.0.6"
-  }
+    "angular": ">= 1.0.8"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "component.json",
+    "package.json",
+    "lib",
+    "config",
+    "sample",
+    "test",
+    "tests",
+    "ngdoc_assets",
+    "Gruntfile.js",
+    "files.js"
+  ]
 }

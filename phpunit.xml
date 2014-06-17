@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit 
+	bootstrap="php/base_include.php"
+	colors="true">
+    <testsuites>
+        <testsuite name="PHANG Test Suite">
+            <directory>./php/models/Test/</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

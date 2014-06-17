@@ -35,7 +35,7 @@
           <div class="navbar-inner">
             <div class="container">
               <ul class="nav">
-                <li ui-route="/home" ng-class="{active:$uiRoute}">
+                <li ui-sref="home" ng-class="{active:$state.includes('home')}">
                   <a href="#/home">
                     <i class="icon-home"></i>
                     Home

@@ -1,5 +1,5 @@
-angular.module('ngBoilerplate.home', [
-  'ui.state',
+angular.module('PHANG.home', [
+  'ui.router',
   'plusOne'
 ]).config([
   '$stateProvider',
