@@ -66,16 +66,16 @@ Registering
 
 .. caution::
 
+    If you're using a form to authenticate users, you need to enable
+    ``SessionServiceProvider``.
+
+.. caution::
+
     The security features are only available after the Application has been
     booted. So, if you want to use it outside of the handling of a request,
     don't forget to call ``boot()`` first::
 
         $application->boot();
-
-.. caution::
-
-    If you're using a form to authenticate users, you need to enable
-    ``SessionServiceProvider``.
 
 Usage
 -----
@@ -165,9 +165,9 @@ Using a form to authenticate users is very similar to the above configuration.
 Instead of using the ``http`` setting, use the ``form`` one and define these
 two parameters:
 
-* **login_path**: The login path where the user is redirected when he is
-  accessing a secured area without being authenticated so that he can enter
-  his credentials;
+* **login_path**: The login path where the user is redirected when they are
+  accessing a secured area without being authenticated so that they can enter
+  their credentials;
 
 * **check_path**: The check URL used by Symfony to validate the credentials of
   the user.
@@ -377,7 +377,7 @@ parameter to any URL when logged in as a user who has the
 
 You can check that you are impersonating a user by checking the special
 ``ROLE_PREVIOUS_ADMIN``. This is useful for instance to allow the user to
-switch back to his primary account:
+switch back to their primary account:
 
 .. code-block:: jinja
 
@@ -432,9 +432,9 @@ The ``users`` setting can be defined as a service that returns an instance of
 `UserProviderInterface
 <http://api.symfony.com/master/Symfony/Component/Security/Core/User/UserProviderInterface.html>`_::
 
-    'users' => $app->share(function () use ($app) {
+    'users' => function () use ($app) {
         return new UserProvider($app['db']);
-    }),
+    },
 
 Here is a simple example of a user provider, where Doctrine DBAL is used to
 store the users::
@@ -532,12 +532,12 @@ service::
 
     use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 
-    $app['security.encoder.digest'] = $app->share(function ($app) {
+    $app['security.encoder.digest'] = function ($app) {
         // use the sha1 algorithm
         // don't base64 encode the password
         // use only 1 iteration
         return new MessageDigestPasswordEncoder('sha1', false, 1);
-    });
+    };
 
 Defining a custom Authentication Provider
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -550,14 +550,14 @@ use in your configuration::
 
     $app['security.authentication_listener.factory.wsse'] = $app->protect(function ($name, $options) use ($app) {
         // define the authentication provider object
-        $app['security.authentication_provider.'.$name.'.wsse'] = $app->share(function () use ($app) {
+        $app['security.authentication_provider.'.$name.'.wsse'] = function () use ($app) {
             return new WsseProvider($app['security.user_provider.default'], __DIR__.'/security_cache');
-        });
+        };
 
         // define the authentication listener object
-        $app['security.authentication_listener.'.$name.'.wsse'] = $app->share(function () use ($app) {
+        $app['security.authentication_listener.'.$name.'.wsse'] = function () use ($app) {
             return new WsseListener($app['security'], $app['security.authentication_manager']);
-        });
+        };
 
         return array(
             // the authentication provider id

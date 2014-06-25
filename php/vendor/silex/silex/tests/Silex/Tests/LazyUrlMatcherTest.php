@@ -11,7 +11,7 @@
 
 namespace Silex\Tests;
 
-use Silex\LazyUrlMatcher;
+use Silex\Provider\Routing\LazyUrlMatcher;
 
 /**
  * LazyUrlMatcher test case.
@@ -85,7 +85,7 @@ class LazyUrlMatcherTest extends \PHPUnit_Framework_TestCase
         $matcher = new LazyUrlMatcher(function () use ($urlMatcher) {
             return $urlMatcher;
         });
-        $result = $matcher->setContext($context);
+        $matcher->setContext($context);
     }
 
     /**

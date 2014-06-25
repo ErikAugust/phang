@@ -1,4 +1,4 @@
 # config/routes.yml
 index:
   path: /test
-  defaults: { _controller: 'models\AppController::testAction' }
+  defaults: { _controller: 'controllers\AppController::testAction' }

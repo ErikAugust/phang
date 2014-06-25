@@ -1,4 +1,6 @@
 <?php
+
+// Base include file:
 require_once __DIR__.'/../php/base_include.php';
 
 // Use Symfony components:
@@ -7,22 +9,23 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
+
+use Symfony\Component\Routing\RouteCollection;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Routing\Loader\YamlFileLoader;
-use Symfony\Component\Routing\RouteCollection;
 use Silex\Application;
 
 // Use app models:
 use models\Base;
-use models\AppController;
+use controllers\AppController;
 
 // Init Silex:
 $app = new Application();
 
-// Session handler - stores session in "../../session"
-/*$app->register(new Silex\Provider\SessionServiceProvider(), array(
+// Session handler - stores session in "../php/session"
+$app->register(new Silex\Provider\SessionServiceProvider(), array(
     'session.storage.save_path' => __DIR__.'/../php/session',
-));*/
+));
 
 // Decodes headers with JSON Content-Type automatically
 $app->before(function (Request $request) {
@@ -34,12 +37,12 @@ $app->before(function (Request $request) {
 
 // Init Cookie -> Session handling
 /*$app->before(function (Request $request) use ($app) {
-	if(!$app['session']->has("Example")) {
-		$cookies = $request->cookies;
-    	if($cookies->has("Example")) {
-        	$app['session']->set("Example", $cookies->get("Example"));
-		}
-	}
+    if(!$app['session']->has("Example")) {
+        $cookies = $request->cookies;
+        if($cookies->has("Example")) {
+            $app['session']->set("Example", $cookies->get("Example"));
+        }
+    }
 });*/
 
 // Twig HTML templating/rendering
@@ -47,27 +50,22 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../php/views',
 ));
 
-// Silex Memcache Provider:
-$app->register(new SilexMemcache\MemcacheExtension(), array(
-    'memcache.library'    => MEMCACHE_LIBRARY,
-    'memcache.server' => array(
-        array(MEMCACHE_HOST, MEMCACHE_PORT)
-    )
-));
 
 // Routing to SPA (Single Page Application)
 // PHANG, by default uses the single page application format:
 $app->get('/', function () use ($app) {
-	return $app->redirect('/index.html');
+    return $app->redirect('/index.html');
 });
 
-
-// Extended routes - generated routes are located in /../php/config/routes.yml
+// Extended routes - for REST API creation - generated routes are located in /../php/config/routes.yml
 $app['routes'] = $app->extend('routes', function (RouteCollection $routes, Application $app) {
-    $loader     = new YamlFileLoader(new FileLocator(__DIR__ . '/../php/config'));
+
+    $locator = new FileLocator(array(__DIR__ . "/../php/config/"));
+    $loader = new YamlFileLoader($locator);
     $collection = $loader->load('routes.yml');
+
     $routes->addCollection($collection);
- 
+
     return $routes;
 });
 

@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'models' => array($baseDir . '/'),
+    'controllers' => array($baseDir . '/'),
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
     'Symfony\\Component\\Yaml' => array($vendorDir . '/symfony/yaml'),
     'Symfony\\Component\\Routing\\' => array($vendorDir . '/symfony/routing'),
@@ -16,8 +17,7 @@ return array(
     'Symfony\\Component\\EventDispatcher\\' => array($vendorDir . '/symfony/event-dispatcher'),
     'Symfony\\Component\\Debug\\' => array($vendorDir . '/symfony/debug'),
     'Symfony\\Component\\Config\\' => array($vendorDir . '/symfony/config'),
-    'SilexMemcache' => array($vendorDir . '/mheap/silex-memcache/src'),
     'Silex' => array($vendorDir . '/silex/silex/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
-    'Pimple' => array($vendorDir . '/pimple/pimple/lib'),
+    'Pimple' => array($vendorDir . '/pimple/pimple/src'),
 );

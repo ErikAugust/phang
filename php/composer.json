@@ -1,18 +1,20 @@
 {
+    "minimum-stability": "dev",
     "require": {
-        "silex/silex": "1.*",
-		"symfony/yaml": "2.1.*",
-		"symfony/config": "2.3.*@dev",
-		"twig/twig": ">=1.8,<2.0-dev",
-        "mheap/Silex-Memcache": "*@dev",
-		"swiftmailer/swiftmailer": ">=4.1.2,<4.2-dev"
+        "silex/silex": "2.0.*@dev",
+        "symfony/routing": "2.5.*@dev",
+        "symfony/config": "2.6.*@dev",
+        "symfony/yaml": "2.1.*@dev",
+        "twig/twig": ">=1.8,<2.0-dev",
+        "swiftmailer/swiftmailer": ">=4.1.2,<4.2-dev"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.14"
     },
     "autoload": {
         "psr-0": {
-            "models": ""
+            "models": "",
+            "controllers": ""
         }
     }
 }

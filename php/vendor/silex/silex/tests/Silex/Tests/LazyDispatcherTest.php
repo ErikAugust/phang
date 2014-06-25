@@ -12,7 +12,6 @@
 namespace Silex\Tests;
 
 use Silex\Application;
-
 use Symfony\Component\HttpFoundation\Request;
 
 class LazyDispatcherTest extends \PHPUnit_Framework_TestCase
@@ -23,11 +22,11 @@ class LazyDispatcherTest extends \PHPUnit_Framework_TestCase
         $dispatcherCreated = false;
 
         $app = new Application();
-        $app['dispatcher'] = $app->share($app->extend('dispatcher', function ($dispatcher, $app) use (&$dispatcherCreated) {
+        $app->extend('dispatcher', function ($dispatcher, $app) use (&$dispatcherCreated) {
             $dispatcherCreated = true;
 
             return $dispatcher;
-        }));
+        });
 
         $app->before(function () {});
 

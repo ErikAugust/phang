@@ -65,6 +65,7 @@ the ``Silex\Provider`` namespace:
 * :doc:`HttpCacheServiceProvider <providers/http_cache>`
 * :doc:`FormServiceProvider <providers/form>`
 * :doc:`SecurityServiceProvider <providers/security>`
+* :doc:`RememberMeServiceProvider <providers/remember_me>`
 * :doc:`ServiceControllerServiceProvider <providers/service_controller>`
 
 Third party providers
@@ -72,14 +73,14 @@ Third party providers
 
 Some service providers are developed by the community. Those third-party
 providers are listed on `Silex' repository wiki
-<https://github.com/fabpot/Silex/wiki/Third-Party-ServiceProviders>`_.
+<https://github.com/silexphp/Silex/wiki/Third-Party-ServiceProviders>`_.
 
 You are encouraged to share yours.
 
 Creating a provider
 ~~~~~~~~~~~~~~~~~~~
 
-Providers must implement the ``Silex\ServiceProviderInterface``::
+Providers must implement the ``Silex\Api\ServiceProviderInterface``::
 
     interface ServiceProviderInterface
     {
@@ -99,7 +100,7 @@ Here is an example of such a provider::
     namespace Acme;
 
     use Silex\Application;
-    use Silex\ServiceProviderInterface;
+    use Silex\Api\ServiceProviderInterface;
 
     class HelloServiceProvider implements ServiceProviderInterface
     {
@@ -139,8 +140,10 @@ You can now use this provider as follows::
 In this example we are getting the ``name`` parameter from the query string,
 so the request path would have to be ``/hello?name=Fabien``.
 
-Controllers providers
----------------------
+.. _controller-providers:
+
+Controller Providers
+--------------------
 
 Loading providers
 ~~~~~~~~~~~~~~~~~
@@ -158,7 +161,7 @@ All controllers defined by the provider will now be available under the
 Creating a provider
 ~~~~~~~~~~~~~~~~~~~
 
-Providers must implement the ``Silex\ControllerProviderInterface``::
+Providers must implement the ``Silex\Api\ControllerProviderInterface``::
 
     interface ControllerProviderInterface
     {
@@ -170,7 +173,7 @@ Here is an example of such a provider::
     namespace Acme;
 
     use Silex\Application;
-    use Silex\ControllerProviderInterface;
+    use Silex\Api\ControllerProviderInterface;
 
     class HelloControllerProvider implements ControllerProviderInterface
     {

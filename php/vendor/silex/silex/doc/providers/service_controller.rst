@@ -15,7 +15,7 @@ Why would I want to do this?
 
   Using this method, you can inject the actual dependencies required by your
   controller and gain total inversion of control, while still maintaining the
-  lazy loading of your controllers and it's dependencies. Because your
+  lazy loading of your controllers and its dependencies. Because your
   dependencies are clearly defined, they are easily mocked, allowing you to test
   your controllers in isolation.
 
@@ -58,9 +58,9 @@ In this slightly contrived example of a blog API, we're going to change the
 
     $app = new Application();
 
-    $app['posts.repository'] = $app->share(function() {
+    $app['posts.repository'] = function() {
         return new PostRepository;
-    });
+    };
 
     $app->get('/posts.json', function() use ($app) {
         return $app->json($app['posts.repository']->findAll());
@@ -109,8 +109,8 @@ followed by a single colon (:), followed by the method name.
 
 .. code-block:: php
 
-    $app['posts.controller'] = $app->share(function() use ($app) {
+    $app['posts.controller'] = function() use ($app) {
         return new PostController($app['posts.repository']);
-    });
+    };
 
     $app->get('/posts.json', "posts.controller:indexJsonAction");

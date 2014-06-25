@@ -121,10 +121,6 @@ class SecurityServiceProviderTest extends WebTestCase
 
     public function testUserPasswordValidatorIsRegistered()
     {
-        if (!is_dir(__DIR__.'/../../../../vendor/symfony/validator')) {
-            $this->markTestSkipped('Validator dependency was not installed.');
-        }
-
         $app = new Application();
 
         $app->register(new ValidatorServiceProvider());
@@ -164,6 +160,24 @@ class SecurityServiceProviderTest extends WebTestCase
         $client->getRequest()->getSession()->save();
     }
 
+    public function testFakeRoutesAreSerializable()
+    {
+        $app = new Application();
+
+        $app->register(new SecurityServiceProvider(), array(
+            'security.firewalls' => array(
+                'admin' => array(
+                    'logout' => true,
+                ),
+            ),
+        ));
+
+        $app->boot();
+        $app->flush();
+
+        $this->assertCount(1, unserialize(serialize($app['routes'])));
+    }
+
     public function createApplication($authenticationMethod = 'form')
     {
         $app = new Application();
@@ -186,7 +200,9 @@ class SecurityServiceProviderTest extends WebTestCase
                 'default' => array(
                     'pattern' => '^.*$',
                     'anonymous' => true,
-                    'form' => true,
+                    'form' => array(
+                        'require_previous_session' => false,
+                    ),
                     'logout' => true,
                     'users' => array(
                         // password is foo

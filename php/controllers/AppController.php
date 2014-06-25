@@ -1,5 +1,5 @@
 <?php
-namespace models;
+namespace controllers;
  
 use Symfony\Component\HttpFoundation\Response;
 use Silex\Application;
