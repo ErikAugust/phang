@@ -12,13 +12,15 @@ use PDO;
 class Base {
 
     protected $db;
-	protected $memcache;
+	public $memcache;
+	public $redis;
 
     public function __construct($dbset = 'default') {
 
 		// Setups
 		$this->db = self::dbSetup($dbset);
 		$this->memcache = self::memcacheSetup();
+		$this->redis = self::redisSetup();
 	}
 
 	public static function dbSetup($dbset = 'default') {
@@ -41,6 +43,12 @@ class Base {
         $db->setAttribute(PDO::ATTR_TIMEOUT, 5);
 		return $db;
 	}
+
+	public static function redisSetup() {
+        $redis = new \Redis() or die("Cannot load redis module.");
+        $redis->connect('127.0.0.1');
+        return $redis;
+    }
 
 	public static function memcacheSetup() {
 		// Memcache provider setup:

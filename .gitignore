@@ -38,4 +38,5 @@ Thumbs.db
 
 # Database #
 ################
-php/settings/database.ini
+php/config/database.ini
+php/logs/*

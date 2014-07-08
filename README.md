@@ -49,3 +49,7 @@ Unit Testing: Karma<br />
 Task Running: Grunt<br />
 </p>
 
+<h3>Quick start guide</h3>
+<p>1. Clone into the desired directory</p>
+<p><code>git clone https://github.com/ErikAugust/phang.git</code></p>
+
