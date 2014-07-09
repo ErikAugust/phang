@@ -1,4 +1,4 @@
-<p><strong>PHANG</strong> - 0.4.0 (<a href="http://en.wikipedia.org/wiki/Luis_Su%C3%A1rez" target="_blank">Suárez</a>)
+<p><strong>PHANG</strong> - 0.4.1 (<a href="http://en.wikipedia.org/wiki/Luis_Su%C3%A1rez" target="_blank">Suárez</a>)
 <br />0.4.0:<br />Major updates to PHP:<br />
 <br />Moves from Silex 1.* to 2.*<br />
 <br />Moves from simple Silex routing to Symfony controller/routing system
@@ -50,6 +50,24 @@ Task Running: Grunt<br />
 </p>
 
 <h3>Quick start guide</h3>
-<p>1. Clone into the desired directory</p>
+
+1. Clone into the desired directory<br />
 <p><code>git clone https://github.com/ErikAugust/phang.git</code></p>
 
+2. Update composer<br />
+<p><code>cd php</code></p>
+<p><code>php composer.phar self-update</code></p>
+
+3. Delete outdated vendor files<br />
+<p><code>rm -rf vendor/</code></p>
+
+4. Update composer to create new vendor files<br />
+<p><code>php composer.phar update</code></p>
+
+5. Set your default database credentials<br />
+<p><code>vi config/database.ini</code></p>
+
+6. Create a session folder<br />
+<p><code>mkdir session/</code></p>
+
+7. Point your browser to the /test endpoint. You should see Hello world! (http://phang.erikaugust.com/test). Now point your browser to the index. You will see something like this: http://phang.erikaugust.com. All set!
