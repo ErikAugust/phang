@@ -1,7 +1,8 @@
 angular.module( 'ngBoilerplate', [
   'templates-app',
   'templates-common',
-  'PHANG.home',
+  'ngBoilerplate.home',
+  'ngBoilerplate.about',
   'ui.router'
 ])
 

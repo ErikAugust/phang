@@ -12,7 +12,7 @@
  * The dependencies block here is also where component dependencies should be
  * specified, as shown below.
  */
-angular.module( 'PHANG.home', [
+angular.module( 'ngBoilerplate.home', [
   'ui.router',
   'plusOne'
 ])

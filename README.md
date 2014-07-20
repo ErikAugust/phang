@@ -1,4 +1,5 @@
-<p><strong>PHANG</strong> - 0.4.1 (<a href="http://en.wikipedia.org/wiki/Luis_Su%C3%A1rez" target="_blank">Suárez</a>)
+<p>PHANG 0.5.0<br />
+<br />0.5.0:<br />Major updates to Angular - moves to latest ngbp - Bootstrap 3, AngularJS ~1.2
 <br />0.4.0:<br />Major updates to PHP:<br />
 <br />Moves from Silex 1.* to 2.*<br />
 <br />Moves from simple Silex routing to Symfony controller/routing system
@@ -51,6 +52,7 @@ Task Running: Grunt<br />
 
 <h3>Quick start guide</h3>
 
+<p>PHP</p>
 1. Clone into the desired directory<br />
 <p><code>git clone https://github.com/ErikAugust/phang.git</code></p>
 
@@ -71,3 +73,16 @@ Task Running: Grunt<br />
 <p><code>mkdir session/</code></p>
 
 7. Point your browser to the /test endpoint. You should see Hello world! (http://phang.erikaugust.com/test). Now point your browser to the index. You will see something like this: http://phang.erikaugust.com. All set!
+
+<p>AngularJS</p>
+1. Move to the angular directory<br />
+<p><code>cd ..</code></p>
+<p><code>cd angular</code></p>
+
+2. Install Grunt-CLI, Karma and Bower
+<p><code>sudo npm -g install grunt-cli karma bower</code></p>
+<p><code>npm install</code></p>
+<p><code>bower install</code></p>
+
+3. Run Grunt
+<p><code>grunt watch</code></p>

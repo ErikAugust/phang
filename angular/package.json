@@ -1,10 +1,11 @@
 {
   "author": "Erik August Johnson",
   "name": "PHANG",
-  "version": "0.4.0",
-  "homepage": "http://phang.erikaugust.com",
+  "version": "0.5.0",
+  "homepage": "https://github.com/ErikAugust/phang",
   "licenses": {
-    "type": "MIT"
+    "type": "MIT",
+    "url": "https://raw.github.com/ErikAugust/phang/master/LICENSE"
   },
   "bugs": "https://github.com/ErikAugust/phang/issues",
   "repository": {
@@ -14,19 +15,23 @@
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-recess": "~0.3.0",
-    "grunt-contrib-clean": "~0.4.1",
-    "grunt-contrib-copy": "~0.4.1",
-    "grunt-contrib-jshint": "~0.4.3",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-watch": "~0.4.0",
-    "grunt-contrib-uglify": "~0.2.0",
-    "grunt-karma": "~0.5.0",
+    "grunt-contrib-less": "~0.11.0",
+    "grunt-contrib-clean": "^0.4.1",
+    "grunt-contrib-copy": "^0.4.1",
+    "grunt-contrib-jshint": "^0.4.3",
+    "grunt-contrib-concat": "^0.3.0",
+    "grunt-contrib-watch": "^0.4.4",
+    "grunt-contrib-uglify": "^0.2.7",
     "grunt-ngmin": "0.0.2",
-    "grunt-html2js": "~0.1.3",
-    "grunt-contrib-coffee": "~0.7.0",
-    "grunt-coffeelint": "0.0.6",
-    "grunt-conventional-changelog": "~0.1.1",
-    "grunt-bump": "0.0.6"
+    "grunt-html2js": "^0.1.9",
+    "grunt-contrib-coffee": "^0.7.0",
+    "grunt-coffeelint": "~0.0.10",
+    "grunt-conventional-changelog": "^0.1.2",
+    "grunt-bump": "0.0.6",
+    "karma-firefox-launcher": "^0.1.3",
+    "karma-jasmine": "^0.1.5",
+    "grunt-karma": "^0.8.2",
+    "karma-coffee-preprocessor": "^0.2.1",
+    "karma": "^0.12.9"
   }
 }
