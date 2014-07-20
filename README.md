@@ -2,11 +2,13 @@
 <br /><strong>0.5.0:</strong><br />
 Major updates to Angular:<br />
 Moves to latest version of ngbp - Bootstrap 3, AngularJS ~1.2, Angular-Bootstrap<br />
+Command Line Utility released: <strong>test</strong> command - run both server-side and client-side tests to be run at once!<br />
 
 <br />0.4.0:<br />Major updates to PHP:<br />
 Moves from Silex 1.* to 2.*
 <br />Moves from simple Silex routing to Symfony controller/routing system
 <br />Updates to latest versions of Symfony components
+<br />
 <br />0.3.0:<br />Adds Angular Resource<br />Updates Angular UI Router from 0.0.1 to 0.2.10<br />
 Updates Angular Bootstrap from 0.3.0 to 0.8.0<br /><br /> 
 <br />0.2.0: PHP Unit Tests added for Base.php class</p>
