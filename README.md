@@ -1,5 +1,5 @@
-<p>PHANG 0.5.0<br />
-<br />0.5.0:<br />Major updates to Angular - moves to latest ngbp - Bootstrap 3, AngularJS ~1.2
+<p><strong>PHANG 0.5.0</strong><br />
+<br /><strong>0.5.0:</strong> Major updates to Angular - moves to latest ngbp - Bootstrap 3, AngularJS ~1.2
 <br />0.4.0:<br />Major updates to PHP:<br />
 <br />Moves from Silex 1.* to 2.*<br />
 <br />Moves from simple Silex routing to Symfony controller/routing system
@@ -86,3 +86,20 @@ Task Running: Grunt<br />
 
 3. Run Grunt
 <p><code>grunt watch</code></p>
+
+4. Point your browser to the root directory. You should see something like this: http://phang.erikaugust.com.
+
+<p>Command Line Utility</p>
+1. Go to the root directory<br />
+<p><code>cd ..</code>
+
+2. Run the "test" command
+<p><code>./phang test</code>
+
+3. Say "Wow. Cool! I just ran my server-side and client-side tests all at once!"
+
+
+<h3>Command Line Utility - Commands</h3>
+<h4>test</h4>
+<p><code>./phang test</code></p>
+<p>Runs both default PHPUnit and Karma tests. Run both your server-side and client-side tests just like that.</p>
