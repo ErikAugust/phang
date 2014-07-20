@@ -17,7 +17,7 @@
     <meta property="og:description" content="PHP and AngularJS Apps Made Easy: Everything you need to kickstart AngularJS projects: a best-practice directory structure, an intelligent build system, and the best web design libraries around.">
 
     <!-- font awesome from BootstrapCDN -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
     <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
     <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
@@ -25,48 +25,61 @@
     <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
     <script type="text/javascript" src="<%= file %>"></script><% }); %>
 
+	    <!-- it's stupid to have to load it here, but this is for the +1 button -->
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+      { "parsetags": "explicit" }
+    </script>
   </head>
   <body>
     <div class="container">
-      <div class="masthead">
-        <h3 class="muted">PHANG <small><a
-              href="http://github.com/ErikAugust/phang">v<%= version %></a></small></h3>
-        <div class="navbar">
-          <div class="navbar-inner">
-            <div class="container">
-              <ul class="nav">
-                <li ui-sref="home" ng-class="{active:$state.includes('home')}">
-                  <a href="#/home">
-                    <i class="icon-home"></i>
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="https://github.com/ErikAugust/phang#readme">
-                    <i class="icon-book"></i>
-                    Read the Docs
-                  </a>
-                </li>
-                <li>
-                  <a href="https://github.com/ErikAugust/phang">
-                    <i class="icon-github-alt"></i>
-                    Github
-                  </a>
-                </li>
-                <li>
-                  <a href="https://github.com/ErikAugust/phang/issues">
-                    <i class="icon-comments"></i>
-                    Support
-                  </a>
-                </li>
-              </ul>
-            </div>
+      <div class="navbar navbar-default">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" ng-init="menuCollapsed = true"
+            ng-click="menuCollapsed = ! menuCollapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand">
+            PHANG
+            <small>
+              <a href="http://github.com/ngbp/ngbp/blob/v<%= version %>-release/CHANGELOG.md">
+                v<%= version %>
+              </a>
+            </small>
           </div>
+        </div>
+        <div class="collapse navbar-collapse" collapse="menuCollapsed">
+          <ul class="nav navbar-nav">
+            <li ui-sref-active="active">
+              <a href ui-sref="home">
+                <i class="fa fa-home"></i>
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/ErikAugust/phang#readme">
+                <i class="fa fa-book"></i>
+                Read the Docs
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/ErikAugust/phang">
+                <i class="fa fa-github-alt"></i>
+                Github
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/ErikAugust/phang/issues">
+                <i class="fa fa-comments"></i>
+                Support
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-
-    <div class="container" ui-view="main"></div>
 
     <footer class="footer">
       <div class="container">
