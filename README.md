@@ -17,7 +17,7 @@ Updates Angular Bootstrap from 0.3.0 to 0.8.0<br /><br />
 
 <p><img src="http://erikaugust.com/wp-content/uploads/2014/06/5877607_l-300x300.jpg" /></p>
 
-<p><strong>What is heck is Phang?</strong><br />
+<p><strong>What the heck is Phang?</strong><br />
 <strong>Phang</strong> is a complete web application boilerplate.</strong>It combines the Silex PHP framework with the AngularJS JavaScript framework. Back-end concerns are handled by PHP and AngularJS handles front-end.</p>
 
 <p><strong>Why the name Phang?</strong><br />
