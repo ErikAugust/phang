@@ -9,6 +9,7 @@ module.exports = {
    */
   build_dir: 'build',
   compile_dir: '../web',
+  index_compile_dir: '../php/views',
 
   /**
    * This is a collection of file patterns that refer to our app code (the
@@ -29,7 +30,7 @@ module.exports = {
     atpl: [ 'src/app/**/*.tpl.html' ],
     ctpl: [ 'src/common/**/*.tpl.html' ],
 
-    html: [ 'src/index.html' ],
+    html: [ 'src/index.twig' ],
     less: 'src/less/main.less'
   },
 

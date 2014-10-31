@@ -51,10 +51,9 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 ));
 
 
-// Routing to SPA (Single Page Application)
-// PHANG, by default uses the single page application format:
+// Route to SPA index twig template:
 $app->get('/', function () use ($app) {
-    return $app->redirect('/index.html');
+    return $app['twig']->render('index.twig');
 });
 
 // Extended routes - for REST API creation - generated routes are located in /../php/config/routes.yml

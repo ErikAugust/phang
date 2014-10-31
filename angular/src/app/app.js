@@ -9,6 +9,11 @@ angular.module( 'ngBoilerplate', [
   $urlRouterProvider.otherwise( '/home' );
 })
 
+// Adds back the PHANGs:
+.config(function($interpolateProvider){
+        $interpolateProvider.startSymbol('{v{').endSymbol('}v}');
+})
+
 .run( function run () {
 })
 

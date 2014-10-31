@@ -384,7 +384,7 @@ module.exports = function ( grunt ) {
        * file. Now we're back!
        */
       compile: {
-        dir: '<%= compile_dir %>',
+        dir: '<%= index_compile_dir %>',
         src: [
           '<%= concat.compile_js.dest %>',
           '<%= vendor_files.css %>',
@@ -600,7 +600,7 @@ module.exports = function ( grunt ) {
       return file.replace( dirRE, '' );
     });
 
-    grunt.file.copy('src/index.html', this.data.dir + '/index.html', { 
+    grunt.file.copy('src/index.html', this.data.dir + '/index.twig', { 
       process: function ( contents, path ) {
         return grunt.template.process( contents, {
           data: {

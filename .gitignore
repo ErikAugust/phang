@@ -40,3 +40,12 @@ Thumbs.db
 ################
 php/config/database.ini
 php/logs/*
+
+# Session #
+################
+php/session/*
+
+# Vendor #
+################
+php/vendor/*
+angular/vendor/*
